@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* LOCAL MODE - Dark greens */
+  --local-bg: linear-gradient(135deg, #050a05 0%, #0a1a0e 40%, #051210 100%);
+  --local-surface: rgba(10, 25, 14, 0.85);
+  --local-surface-2: rgba(15, 35, 20, 0.9);
+  --local-border: rgba(0, 200, 100, 0.12);
+  --local-accent: #00c864;
+  --local-accent-dim: rgba(0, 200, 100, 0.15);
+  --local-accent-glow: 0 0 20px rgba(0, 200, 100, 0.3);
+  --local-text: #e8f5ee;
+  --local-text-muted: rgba(232, 245, 238, 0.55);
+  --local-text-faint: rgba(232, 245, 238, 0.3);
+  --local-scrollbar: rgba(0, 200, 100, 0.2);
+
+  /* WEB MODE - Blues */
+  --web-bg: linear-gradient(135deg, #020818 0%, #050d2e 40%, #020a1f 100%);
+  --web-surface: rgba(5, 12, 40, 0.85);
+  --web-surface-2: rgba(8, 18, 55, 0.9);
+  --web-border: rgba(50, 130, 255, 0.15);
+  --web-accent: #3d8bff;
+  --web-accent-dim: rgba(61, 139, 255, 0.15);
+  --web-accent-glow: 0 0 20px rgba(61, 139, 255, 0.3);
+  --web-text: #e0ebff;
+  --web-text-muted: rgba(224, 235, 255, 0.55);
+  --web-text-faint: rgba(224, 235, 255, 0.3);
+  --web-scrollbar: rgba(61, 139, 255, 0.2);
+
+  /* Active mode tokens (default: local) */
+  --bg: var(--local-bg);
+  --surface: var(--local-surface);
+  --surface-2: var(--local-surface-2);
+  --border: var(--local-border);
+  --accent: var(--local-accent);
+  --accent-dim: var(--local-accent-dim);
+  --accent-glow: var(--local-accent-glow);
+  --text: var(--local-text);
+  --text-muted: var(--local-text-muted);
+  --text-faint: var(--local-text-faint);
+  --scrollbar-color: var(--local-scrollbar);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-mode="web"] {
+  --bg: var(--web-bg);
+  --surface: var(--web-surface);
+  --surface-2: var(--web-surface-2);
+  --border: var(--web-border);
+  --accent: var(--web-accent);
+  --accent-dim: var(--web-accent-dim);
+  --accent-glow: var(--web-accent-glow);
+  --text: var(--web-text);
+  --text-muted: var(--web-text-muted);
+  --text-faint: var(--web-text-faint);
+  --scrollbar-color: var(--web-scrollbar);
+}
+
+html, body, #root {
+  height: 100%; width: 100%;
+  font-family: var(--font-body);
+  color: var(--text);
+  overflow: hidden;
+}
+
+body {
+  background: #050a05;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-color); border-radius: 2px; }
+
+::selection { background: var(--accent-dim); color: var(--text); }
+
+button { cursor: pointer; font-family: var(--font-body); }
+input, textarea { font-family: var(--font-body); }
+
+.glass {
+  background: var(--surface);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--border);
+}
+
+.glass-2 {
+  background: var(--surface-2);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  overflow-x: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
