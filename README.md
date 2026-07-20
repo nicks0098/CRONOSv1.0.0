@@ -7,7 +7,9 @@ CRONOS AI is a premium local-first desktop AI assistant built with Electron, des
 - Model management
 - Persistent settings
 - Web Live mode with Docker-based SearXNG integration
-
+requirements downloads
+1. https://ollama.com/download/windows
+2. ttps://www.docker.com/products/docker-desktop/ (only if you need the live web search)
 ## Windows Release
 Download the installer from the Releases page.
 steps
